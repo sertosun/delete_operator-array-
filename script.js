@@ -5,6 +5,9 @@ let deleteInp = document.getElementById("deleteInput");
 let deleteResLast = document.getElementById("deleteResultLast");
 let deleteResFirst = document.getElementById("deleteResultFirst");
 
+let papi = document.getElementById("papi");
+let list = document.createElement("li");
+
 number = [];
 
 function myAdd() {
@@ -21,15 +24,26 @@ function myDelete() {
     delete number[i];
     deleteRes.innerHTML = number.join("-");
     deleteInp.value = "";
+
+    papi.appendChild(list);
+    list.innerHTML = number;
+    console.log(deleteInp.innerText);
+    console.log(deleteRes);
   }
 }
 
 function myDeleteLast() {
   deleteResultLast.innerHTML = number.pop();
   deleteResultLast.innerHTML = number;
+
+  papi.appendChild(list);
+  list.innerHTML = number;
 }
 
 function myDeleteFirst() {
   deleteResultFirst.innerHTML = number.shift();
   deleteResultFirst.innerHTML = number;
+
+  papi.appendChild(list);
+  list.innerHTML = number;
 }
